@@ -1,1 +1,2 @@
 # gestion-d-une-Biblioth-que-personnelle-
+Développer un système permettant de gérer une collection de livres personnelle. Les utilisateurs pourront ajouter, modifier, supprimer et rechercher des livres dans leur bibliothèque. Les livres seront stockés dans un fichier (par exemple, sous forme de JSON), et l'application offrira une interface en ligne de commande pour interagir avec cette bibliothèque.
