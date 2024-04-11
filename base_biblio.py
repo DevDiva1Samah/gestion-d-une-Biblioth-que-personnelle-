@@ -1,4 +1,4 @@
-import json
+import numpy as np #calcul inputs and outputs statistics
 
 class Library:
     def __init__(self, livres):
@@ -14,27 +14,36 @@ class Library:
         return self.stockage
     
     def emprunter_user(self, name_user, livre, date):
+        self.livre = livre
         if livre not in self.stockage:
             print(f"the book  {livre} doesn't exist check later")
         if livre in self.stockage:
             reserved_book = self.stockage.get(livre)
-        return f"<<user: {name_user} : {date} : {reserved_book}>>"
+            data = [name_user, date, reserved_book]
+        return data 
     
     def supprimer_livre(self):
-        del_book = self.emprunter_user()
-        
-        
+        if self.livre in self.stockage:
+            self.stockage.pop(self.livre)
 
+    def ajouter_livre(self, new_book):
+        if not isinstance(new_book, list):
+            raise TypeError
+        self.stockage.update({"name": new_book[0]})
+        self.stockage.update({"writer": new_book[1]})
+        self.stockage.update({"publication": new_book[2]})
+        self.stockage.update({"type": new_book[2]})
+        return self.stockage
+    
 
+class Livre:
 
-def ajout_livre(name, year, writer, type, publication):
-   pass
+    def __init__(self, namee, typee, schreiber):
+        self.namee = namee
+        self.typee = typee
+        self.schreiber = schreiber
 
-def lister_livres(livres):
-    print(livres)
+    def book_description(self):
+        f"{self.namee}-{self.typee}-{self.schreiber}"
 
-def recherche_livre(titre, auteur, genre):
-    pass
-
-def supprimer_livre():
-    pass
+#ajouter un fonction qui calcule des données statistiques 
